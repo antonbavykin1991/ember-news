@@ -1,0 +1,27 @@
+& {
+  width: 300px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  button {
+    display: flex;
+    margin: 0;
+    padding: 4px 10px;
+    height: 40px;
+    min-width: 200px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #00bfa5;
+    justify-content: center;
+    color: #fff;
+  }
+}

@@ -1,0 +1,24 @@
+<form {{action (perform signIn email password) on='submit'}}>
+  <h3>Sign In</h3>
+
+  <label>
+    {{input type="email" value=email placeholder="Enter Email"}}
+  </label>
+  <label>
+    {{input type="paswword" value=password placeholder="Enter Password"}}
+  </label>
+  <div>
+    <button type="submit">
+      {{#if isRunning}}
+        Loading...
+      {{else}}
+        Sign In
+      {{/if}}
+    </button>
+  </div>
+  {{#if hasError}}
+  <div class="error-message">
+    <p>{{errorMessage}}</p>
+  </div>
+  {{/if}}
+</form>

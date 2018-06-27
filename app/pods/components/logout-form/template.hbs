@@ -1,0 +1,12 @@
+<p>Hey {{session.currentUser.email}}! You are already authenticated ;)</p>
+<p>Go {{#link-to 'index'}}Home{{/link-to}}</p>
+<p>or</p>
+<p>
+  <button {{action (perform logout)}}>
+    {{#if isRunning}}
+      Loading...
+    {{else}}
+      Logout
+    {{/if}}
+  </button>
+</p>

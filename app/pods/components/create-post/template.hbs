@@ -1,0 +1,17 @@
+<form {{action (perform createPost title description) on='submit'}}>
+  <label>
+    {{input type='text' value=title}}
+  </label>
+  <label>
+    {{textarea value=description}}
+  </label>
+  <div>
+    <button type="submit">
+      {{#if isRunning}}
+        Loading...
+      {{else}}
+        Publish
+      {{/if}}
+    </button>
+  </div>
+</form>
