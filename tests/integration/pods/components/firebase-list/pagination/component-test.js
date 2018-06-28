@@ -1,7 +1,7 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit'
+import { setupRenderingTest } from 'ember-qunit'
+import { render } from '@ember/test-helpers'
+import hbs from 'htmlbars-inline-precompile'
 import { task, timeout } from 'ember-concurrency'
 
 module('Integration | Component | firebase-list/pagination', function(hooks) {
@@ -25,9 +25,9 @@ module('Integration | Component | firebase-list/pagination', function(hooks) {
           currentPage=1
           getPaginationData=mockTask
       }}
-    `);
+    `)
 
-    assert.equal(this.element.querySelectorAll('li').length, 5);
-    assert.equal(this.element.querySelector('.active').textContent.trim(), 1);
-  });
-});
+    assert.equal(this.element.querySelectorAll('li').length, 5)
+    assert.equal(this.element.querySelector('.active').textContent.trim(), 1)
+  })
+})

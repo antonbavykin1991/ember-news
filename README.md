@@ -7,6 +7,7 @@ A short introduction of this app could easily go here.
 ## Example
 
 * [Demo](https://ancientworld-ed494.firebaseapp.com/)
+* Test user: testuser@gmail.com / 123123
 
 ## Prerequisites
 
