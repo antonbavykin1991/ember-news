@@ -2,25 +2,45 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { task, timeout } from 'ember-concurrency'
 
 module('Integration | Component | firebase-list', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    const mockModels = [{
+      name: 'test-1'
+    }, {
+      name: 'test-2'
+    }]
 
-    await render(hbs`{{firebase-list}}`);
+    const mockTask = task({
+      *perform() {
+        yield timeout(100)
 
-    assert.equal(this.element.textContent.trim(), '');
+        return mockModels
+      }
+    })
 
-    // Template block usage:
+    this.set('mockTask', mockTask)
+
     await render(hbs`
-      {{#firebase-list}}
-        template block text
+      {{#firebase-list
+          currentPage=1
+          per=2
+          getFirebaseListData=mockTask
+          as |fl|
+      }}
+        {{#each fl.models as |model|}}
+          <div class="test-item">{{model.name}}</div>
+        {{/each}}
       {{/firebase-list}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    const testItems = this.element.querySelectorAll('.test-item')
+
+    assert.equal(testItems.length, mockModels.length, 'it has good length of models')
+    assert.equal(testItems[0].textContent.trim(), mockModels[0].name)
+    assert.equal(testItems[1].textContent.trim(), mockModels[1].name)
   });
 });

@@ -2,25 +2,32 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { task, timeout } from 'ember-concurrency'
 
 module('Integration | Component | firebase-list/pagination', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    const mockTask = task({
+      *perform() {
+        yield timeout(100)
 
-    await render(hbs`{{firebase-list/pagination}}`);
+        return {
+          pages: 5
+        }
+      }
+    })
 
-    assert.equal(this.element.textContent.trim(), '');
+    this.set('mockTask', mockTask)
 
-    // Template block usage:
     await render(hbs`
-      {{#firebase-list/pagination}}
-        template block text
-      {{/firebase-list/pagination}}
+      {{firebase-list/pagination
+          currentPage=1
+          getPaginationData=mockTask
+      }}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.querySelectorAll('li').length, 5);
+    assert.equal(this.element.querySelector('.active').textContent.trim(), 1);
   });
 });

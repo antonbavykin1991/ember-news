@@ -44,5 +44,7 @@ export default Component.extend({
       modelName: this.get('modelName'),
       per: this.get('per')
     })
-  }
+  },
+
+  paginate() {}
 })

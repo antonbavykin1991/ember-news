@@ -50,14 +50,9 @@ export const getFirebaseListData = task({
     try {
       yield timeout(500)
 
-      const firebase = get(this, 'firebase')
       const store = get(this, 'store')
       const limitToFirst = get(this, 'limitToFirst')
       let options = {}
-
-      const totalCount = yield getTotalCount(firebase, {
-        modelName
-      })
 
       if (!limitToFirst) {
         options = {
