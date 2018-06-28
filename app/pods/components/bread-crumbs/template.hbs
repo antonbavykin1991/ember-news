@@ -1,0 +1,8 @@
+{{#each items as |item index|}}
+  {{#if index}} / {{/if}}
+  {{#if item.route}}
+    {{#link-to item.route}}{{item.title}}{{/link-to}}
+  {{else}}
+    <span>{{item.title}}</span>
+  {{/if}}
+{{/each}}

@@ -1,1 +1,7 @@
-{{outlet}}
+{{#main-header as |header|}}
+  {{header.title}}
+  {{header.userInfo}}
+{{/main-header}}
+<div class="main-wrapper">
+  {{outlet}}
+</div>

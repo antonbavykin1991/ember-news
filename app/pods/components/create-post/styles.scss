@@ -1,45 +1,39 @@
 & {
-  width: 400px;
-  margin: 50px auto;
+  margin: 0  auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   box-sizing: border-box;
+  width: 100%;
+
 
   form {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 100%;
 
     h3 {
       text-transform: uppercase;
     }
 
     label {
-
-      textarea,
-      input {
+      span {
         display: flex;
-        margin: 0;
-        padding: 4px 10px;
-        height: 40px;
-        width: 400px;
+        margin-bottom: 4px;
+      }
+
+      input {
+        @include input()
+        width: 100%;
         font-size: 14px;
         box-sizing: border-box;
       }
 
-      textarea {
-        max-width: 400px;
-        min-width: 400px;
-        min-height: 200px;
-        max-height: 200px;
+      &.label__with-margin {
+        margin-bottom: 20px;
       }
-
-      margin-bottom: 20px;
     }
 
-    button {
+    .button {
       display: flex;
       margin: 0;
       padding: 4px 10px;
@@ -50,6 +44,11 @@
       background: #00bfa5;
       justify-content: center;
       color: #fff;
+    }
+
+    .pell-content {
+      border: 1px solid #9a9a9a;
+      margin-bottom: 20px;
     }
 
     .error-message {

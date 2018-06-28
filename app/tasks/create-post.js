@@ -5,6 +5,7 @@ import { get } from '@ember/object'
 export default task({
   session: service(),
   store: service(),
+  routing: service(),
 
   hasError: false,
   errorMessage: '',
@@ -20,6 +21,7 @@ export default task({
       })
 
       yield post.save()
+      yield this.get('routing').transitionTo(`/post/${get(post, 'id')}`)
     } catch (error) {
       const errorMessage = get(error || {}, 'message')
       this.set('errorMessage', errorMessage)

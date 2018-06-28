@@ -1,0 +1,7 @@
+<ul>
+  {{#each paginationData as |item|}}
+    <li {{action paginate item.page}} class="{{if item.isActive 'active'}}">
+      <span>{{item.page}}</span>
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,11 @@
+<span>
+  {{#if session.isAuthenticated}}
+    {{#link-to 'profile'}}
+      <span>Profile</span>
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'auth'}}
+      <span>Auth</span>
+    {{/link-to}}
+  {{/if}}
+</span>

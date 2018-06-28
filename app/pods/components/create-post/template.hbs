@@ -1,12 +1,15 @@
+<h1>Create Post</h1>
 <form {{action (perform createPost title description) on='submit'}}>
-  <label>
+  <label class="label__with-margin">
+    <span>Title:</span>
     {{input type='text' value=title}}
   </label>
   <label>
-    {{textarea value=description}}
+    <span>Description:</span>
   </label>
+  {{pell-editor value=description onChange=(action (mut description))}}
   <div>
-    <button type="submit">
+    <button class="button" type="submit">
       {{#if isRunning}}
         Loading...
       {{else}}

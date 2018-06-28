@@ -1,0 +1,23 @@
+& {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    -webkit-padding-start: 0;
+
+    li {
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+
+      &.active {
+        background: $green;
+        color: #fff;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+}

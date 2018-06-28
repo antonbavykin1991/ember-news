@@ -9,6 +9,8 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
+* [nvm](https://github.com/creationix/nvm)
+* [yarn](https://yarnpkg.com/lang/en)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
@@ -16,7 +18,8 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd ember-news`
-* `npm install`
+* `nvm use`
+* `yarn`
 
 ## Running / Development
 

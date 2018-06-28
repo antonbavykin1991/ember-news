@@ -1,9 +1,20 @@
-<h1>Posts</h1>
+<h1>Recent Posts</h1>
 
-{{#each model as |post|}}
-  <div>
-    <p>{{post.title}} {{#link-to 'post' post.id}}read more...{{/link-to}}</p>
+{{#firebase-list modelName='post' currentPage=1 per=5 as |fl|}}
+  <div class="posts-container">
+    {{#each fl.models as |post|}}
+      <div>
+        <p>{{post.title}} {{#link-to 'post' post.id}}read more...{{/link-to}}</p>
+      </div>
+    {{/each}}
+    {{#if fl.isRunning}}
+      <span class="posts-container__loader">
+        Loading...
+      </span>
+    {{/if}}
   </div>
-{{/each}}
+
+  {{fl.pagination}}
+{{/firebase-list}}
 
 {{outlet}}

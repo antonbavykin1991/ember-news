@@ -11,6 +11,12 @@ export default Route.extend({
       .catch(() => {
         Ember.Logger.log('session is invalid')
       })
+  },
+
+  actions: {
+    accessDenied() {
+      this.transitionTo('/')
+    }
   }
 })
 

@@ -10,8 +10,9 @@ Router.map(function() {
   this.route('auth', function() {
     this.route('registration');
   });
-  this.route('create-post');
+  this.authenticatedRoute('create-post');
   this.route('post', { path: 'post/:id' });
+  this.authenticatedRoute('profile');
 });
 
 export default Router;

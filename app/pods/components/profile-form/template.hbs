@@ -1,0 +1,18 @@
+<div class="user-info">
+  <p>Hey {{email}}!</p>
+  <p>
+    {{#link-to 'create-post'}}
+      Create new post
+    {{/link-to}}
+  </p>
+</div>
+<div class="logout">
+  <button {{action (perform logout)}}>
+    {{#if isRunning}}
+      Loading...
+    {{else}}
+      Logout
+    {{/if}}
+  </button>
+</div>
+

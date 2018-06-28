@@ -1,0 +1,12 @@
+{{yield (hash
+    pagination=(component 'firebase-list/pagination'
+      currentPage=currentPage
+      per=per
+      modelName=modelName
+      paginate=(action paginate)
+    )
+
+    models=models
+    isRunning=isRunning
+  )
+}}
